@@ -40,7 +40,7 @@ esphome:
     board_build.flash_mode: dio
   project:
     name: esphome.voice-assistant
-    version: "24.7.17.1"
+    version: "24.7.17.2"
   on_boot:
     priority: 600
     then:
@@ -188,6 +188,9 @@ micro_wake_word:
   on_wake_word_detected:
     - voice_assistant.start:
         wake_word: !lambda return wake_word;
+
+time:
+  - platform: sntp
 
 voice_assistant:
   id: va
@@ -734,7 +737,8 @@ display:
       - id: idle_page
         lambda: |-
           it.fill(id(idle_color));
-          it.image((it.get_width() / 2), (it.get_height() / 2), id(casita_idle), ImageAlign::CENTER);
+          it.strftime((it.get_width() / 2), (it.get_height() / 2), id(font_request), "%H:%M", id(time).now());
+          # it.image((it.get_width() / 2), (it.get_height() / 2), id(casita_idle), ImageAlign::CENTER);
           id(draw_timer_timeline).execute();
           id(draw_active_timer_widget).execute();
       - id: listening_page
