@@ -190,7 +190,8 @@ micro_wake_word:
         wake_word: !lambda return wake_word;
 
 time:
-  - platform: sntp
+  - platform: homeassistant
+    id: homeassistant_time
 
 voice_assistant:
   id: va
@@ -737,7 +738,7 @@ display:
       - id: idle_page
         lambda: |-
           it.fill(id(idle_color));
-          it.strftime((it.get_width() / 2), (it.get_height() / 2), id(font_request), "%H:%M", id(time).now());
+          it.strftime((it.get_width() / 2), (it.get_height() / 2), id(font_request), "%H:%M", id(homeassistant_time).now());
           # it.image((it.get_width() / 2), (it.get_height() / 2), id(casita_idle), ImageAlign::CENTER);
           id(draw_timer_timeline).execute();
           id(draw_active_timer_widget).execute();
