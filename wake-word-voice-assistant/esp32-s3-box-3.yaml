@@ -2,13 +2,13 @@
 substitutions:
   name: esp32-s3-box-3
   friendly_name: ESP32 S3 Box 3
-  loading_illustration_file: https://github.com/esphome/firmware/raw/main/voice-assistant/casita/loading_320_240.png
-  idle_illustration_file: https://github.com/esphome/firmware/raw/main/voice-assistant/casita/idle_320_240.png
-  listening_illustration_file: https://github.com/esphome/firmware/raw/main/voice-assistant/casita/listening_320_240.png
-  thinking_illustration_file: https://github.com/esphome/firmware/raw/main/voice-assistant/casita/thinking_320_240.png
-  replying_illustration_file: https://github.com/esphome/firmware/raw/main/voice-assistant/casita/replying_320_240.png
-  error_illustration_file: https://github.com/esphome/firmware/raw/main/voice-assistant/casita/error_320_240.png
-  timer_finished_illustration_file: https://github.com/esphome/firmware/raw/main/voice-assistant/casita/timer_finished_320_240.png
+  loading_illustration_file: https://github.com/nagyv/firmware/raw/main/voice-assistant/casita/loading_320_240.png
+  idle_illustration_file: https://github.com/nagyv/firmware/raw/main/voice-assistant/casita/idle_320_240.png
+  listening_illustration_file: https://github.com/nagyv/firmware/raw/main/voice-assistant/casita/listening_320_240.png
+  thinking_illustration_file: https://github.com/nagyv/firmware/raw/main/voice-assistant/casita/thinking_320_240.png
+  replying_illustration_file: https://github.com/nagyv/firmware/raw/main/voice-assistant/casita/replying_320_240.png
+  error_illustration_file: https://github.com/nagyv/firmware/raw/main/voice-assistant/casita/error_320_240.png
+  timer_finished_illustration_file: https://github.com/nagyv/firmware/raw/main/voice-assistant/casita/timer_finished_320_240.png
 
   loading_illustration_background_color: "000000"
   idle_illustration_background_color: "000000"
@@ -39,8 +39,8 @@ esphome:
   platformio_options:
     board_build.flash_mode: dio
   project:
-    name: esphome.voice-assistant
-    version: "24.7.17.2"
+    name: nagyv.voice-assistant
+    version: "24.7.0.1"
   on_boot:
     priority: 600
     then:
@@ -90,14 +90,14 @@ api:
 ota:
   - platform: esphome
     id: ota_esphome
-  - platform: http_request
-    id: ota_http_request
-
-update:
-  - platform: http_request
-    id: update_http_request
-    name: Firmware
-    source: https://firmware.esphome.io/wake-word-voice-assistant/esp32-s3-box-3/manifest.json
+#  - platform: http_request
+#    id: ota_http_request
+#
+#update:
+#  - platform: http_request
+#    id: update_http_request
+#    name: Firmware
+#    source: https://firmware.esphome.io/wake-word-voice-assistant/esp32-s3-box-3/manifest.json
 
 http_request:
 
@@ -105,7 +105,7 @@ logger:
   hardware_uart: USB_SERIAL_JTAG
 
 dashboard_import:
-  package_import_url: github://esphome/firmware/wake-word-voice-assistant/esp32-s3-box-3.yaml@main
+  package_import_url: github://nagyv/firmware/wake-word-voice-assistant/esp32-s3-box-3.yaml@main
 
 wifi:
   ap:
@@ -639,12 +639,12 @@ image:
     resize: 320x240
     type: RGB24
     use_transparency: true
-  - file: https://github.com/esphome/firmware/raw/main/voice-assistant/error_box_illustrations/error-no-wifi.png
+  - file: https://github.com/nagyv/firmware/raw/main/voice-assistant/error_box_illustrations/error-no-wifi.png
     id: error_no_wifi
     resize: 320x240
     type: RGB24
     use_transparency: true
-  - file: https://github.com/esphome/firmware/raw/main/voice-assistant/error_box_illustrations/error-no-ha.png
+  - file: https://github.com/nagyv/firmware/raw/main/voice-assistant/error_box_illustrations/error-no-ha.png
     id: error_no_ha
     resize: 320x240
     type: RGB24
@@ -715,7 +715,7 @@ color:
 
 file:
   - id: timer_finished_wave_file
-    file: https://github.com/esphome/firmware/raw/main/voice-assistant/sounds/timer_finished.wav
+    file: https://github.com/nagyv/firmware/raw/main/voice-assistant/sounds/timer_finished.wav
 
 spi:
   - id: spi_bus
